@@ -1,0 +1,20 @@
+{
+  "name": "xible-np-core",
+  "version": "0.1.0",
+  "description": "Nodepack for XIBLE containing some of the core functionality.",
+  "license": "MIT",
+  "homepage": "https://xible.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spectrumbroad/xible-np-core"
+  },
+  "bugs": {
+    "url": "https://github.com/spectrumbroad/xible-np-core/issues",
+    "email": "bugs@xible.io"
+  },
+  "keywords": [
+    "xible",
+    "core",
+    "nodepack"
+  ]
+}
