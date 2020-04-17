@@ -11,21 +11,19 @@ module.exports = (NODE) => {
   const refreshOut = NODE.getOutputByName('refreshed');
   const valueOut = NODE.getOutputByName('value');
 
-  refreshIn.on('trigger', (conn, state) => {
+  refreshIn.on('trigger', async (conn, state) => {
     // get the input values
     refreshing = true;
-    valueIn.getValues(state).then((vals) => {
-      used = true;
-      refreshing = false;
-      values = vals;
+    values = await valueIn.getValues(state);
+    used = true;
+    refreshing = false;
 
-      // save the state
-      state.set(NODE, {
-        values: vals
-      });
-
-      refreshOut.trigger(state);
+    // save the state
+    state.set(NODE, {
+      values
     });
+
+    refreshOut.trigger(state);
   });
 
   valueOut.on('trigger', async (conn, state) => {
