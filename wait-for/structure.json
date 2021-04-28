@@ -1,5 +1,5 @@
 {
-  "name": "waitfor",
+  "name": "wait-for",
   "type": "action",
   "description": "Waits for all the input triggers to have triggered, before continuing.",
   "inputs": {

@@ -14,7 +14,14 @@ module.exports = (NODE) => {
   refreshIn.on('trigger', async (conn, state) => {
     // get the input values
     refreshing = true;
+
+    state.set(NODE, {
+      refreshing: true,
+      values
+    });
+
     values = await valueIn.getValues(state);
+
     used = true;
     refreshing = false;
 
@@ -29,6 +36,7 @@ module.exports = (NODE) => {
   valueOut.on('trigger', async (conn, state) => {
     // state handling (if refresh complete was used)
     const thisState = state.get(NODE);
+
     if (thisState) {
       return thisState.values;
     }
