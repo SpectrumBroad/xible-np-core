@@ -1,19 +1,26 @@
-<selectcontainer>
-  <select required="required" data-outputvalue="castType">
-    <option selected>string</option>
-    <option>boolean</option>
-    <option>math.number</option>
-    <option>date</option>
-    <option>time</option>
-  </select>
-</selectcontainer>
+<select
+  required="required"
+  placeholder="type"
+  data-output-value="castType"
+  data-description="The type to cast the input to."
+>
+  <option selected>string</option>
+  <option>boolean</option>
+  <option>math.number</option>
+  <option>date</option>
+  <option>time</option>
+</select>
 <script>
   const castTypeSelect = document.querySelector('select');
   const resultOut = this.getOutputByName('result');
 
-  castTypeSelect.onchange = () => {
-    resultOut.setType(castTypeSelect.value);
-  };
+  this.on('setdata', (attr, value) => {
+    if (attr !== 'castType') {
+      return;
+    }
+
+    resultOut.setType(value);
+  });
 
   resultOut.on('detach', () => {
     resultOut.setType(castTypeSelect.value);
