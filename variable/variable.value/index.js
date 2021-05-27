@@ -4,8 +4,8 @@ module.exports = (NODE) => {
   const varsIn = NODE.getInputByName('variables');
   const valuesOut = NODE.getOutputByName('values');
 
-  valuesOut.on('trigger', async (conn, state, callback) => {
+  valuesOut.on('trigger', async (conn, state) => {
     const variables = await varsIn.getValues(state);
-    callback([].concat(...variables.map(variable => variable.values)));
+    return [].concat(...variables.map((variable) => variable.values));
   });
 };
