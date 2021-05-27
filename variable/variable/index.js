@@ -14,7 +14,7 @@ module.exports = (NODE) => {
     };
   });
 
-  valuesOut.on('trigger', async (conn, state) => {
-    return valuesIn.getValues(state);
-  });
+  valuesOut.on('trigger', async (conn, state) => (
+    valuesIn.getValues(state)
+  ));
 };
