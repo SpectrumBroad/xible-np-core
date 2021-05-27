@@ -1,0 +1,37 @@
+{
+  "name": "variable.filter-name",
+  "type": "object",
+  "description": "Filters a list of input variables to only return those with a specific name.",
+  "inputs": {
+    "variables": {
+      "type": "variable",
+      "description": "The variables to filter."
+    },
+    "names": {
+      "type": "string",
+      "description": "The variable names to search for."
+    }
+  },
+  "outputs": {
+    "filtered": {
+      "type": "variable",
+      "description": "The filtered variables."
+    },
+    "values": {
+      "type": "object",
+      "description": "The values assigned to the filtered variables."
+    }
+  },
+  "dataStructure": {
+    "name": {
+      "type": "text",
+      "required": true,
+      "description": "The variable name to search for.",
+      "label": "name",
+      "input": {
+        "name": "names",
+        "replaces": true
+      }
+    }
+  }
+}
